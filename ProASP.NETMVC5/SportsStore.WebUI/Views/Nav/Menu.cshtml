@@ -1,0 +1,21 @@
+﻿@model SportsStore.WebUI.Models.NavViewModel
+
+<!--Link to ProductController.List(null)-->
+@Html.ActionLink("Home", "List", "Product", null,
+        new { @class = "btn btn-block btn-default btn-lg" })
+
+<!--Link to each category via ProductController.List(category, 1)-->
+@foreach (String category in Model.Categories)
+{
+    @Html.RouteLink(
+        category,
+        new { 
+            controller = "Product",
+            action = "List",
+            category = category,
+            page = 1
+        },
+        new { @class = "btn btn-block btn-default btn-lg" + (category == Model.SelectedCategory ? " btn-primary" : "") }
+        )
+}
+

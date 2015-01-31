@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyInvites", "..\PartyInvites\PartyInvites\PartyInvites.csproj", "{0C8B01A6-D9DA-4F92-80F7-0B0BD142C8BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithRazor", "WorkingWithRazor\WorkingWithRazor.csproj", "{634D7CAD-4BD3-400F-8946-3DF37AB5715C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EssentialTools", "EssentialTools\EssentialTools.csproj", "{D862040F-F569-4B8B-8910-AB56EE13C6CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EssentialTools.Tests", "EssentialTools.Tests\EssentialTools.Tests.csproj", "{5BCC69F2-40E5-4AA7-B516-AA585AA5FAF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.Domain", "SportsStore.Domain\SportsStore.Domain.csproj", "{9982424F-F0FF-419C-A3BE-9644C41B1174}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.WebUI", "SportsStore.WebUI\SportsStore.WebUI.csproj", "{16791CAE-CE99-4F8B-B8DE-0BB59AEE8793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.UnitTests", "SportsStore.UnitTests\SportsStore.UnitTests.csproj", "{E0D31C9A-7127-41CE-808D-1BEEE0B62BE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C8B01A6-D9DA-4F92-80F7-0B0BD142C8BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C8B01A6-D9DA-4F92-80F7-0B0BD142C8BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C8B01A6-D9DA-4F92-80F7-0B0BD142C8BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C8B01A6-D9DA-4F92-80F7-0B0BD142C8BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{634D7CAD-4BD3-400F-8946-3DF37AB5715C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{634D7CAD-4BD3-400F-8946-3DF37AB5715C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{634D7CAD-4BD3-400F-8946-3DF37AB5715C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{634D7CAD-4BD3-400F-8946-3DF37AB5715C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D862040F-F569-4B8B-8910-AB56EE13C6CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D862040F-F569-4B8B-8910-AB56EE13C6CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D862040F-F569-4B8B-8910-AB56EE13C6CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D862040F-F569-4B8B-8910-AB56EE13C6CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BCC69F2-40E5-4AA7-B516-AA585AA5FAF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BCC69F2-40E5-4AA7-B516-AA585AA5FAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BCC69F2-40E5-4AA7-B516-AA585AA5FAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BCC69F2-40E5-4AA7-B516-AA585AA5FAF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9982424F-F0FF-419C-A3BE-9644C41B1174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9982424F-F0FF-419C-A3BE-9644C41B1174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9982424F-F0FF-419C-A3BE-9644C41B1174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9982424F-F0FF-419C-A3BE-9644C41B1174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16791CAE-CE99-4F8B-B8DE-0BB59AEE8793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16791CAE-CE99-4F8B-B8DE-0BB59AEE8793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16791CAE-CE99-4F8B-B8DE-0BB59AEE8793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16791CAE-CE99-4F8B-B8DE-0BB59AEE8793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0D31C9A-7127-41CE-808D-1BEEE0B62BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0D31C9A-7127-41CE-808D-1BEEE0B62BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0D31C9A-7127-41CE-808D-1BEEE0B62BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0D31C9A-7127-41CE-808D-1BEEE0B62BE5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
