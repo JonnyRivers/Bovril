@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- width=device-width : Set the page width to that of the device for lovely horizontal fluidity-->
+    <!-- initial-scale=1 : set the initial zoomlevel the the page is first loaded-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Pull in bootstrap & its jQuery dependency -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <h2>Buttons Groups</h2>
+        <p>By defining buttons in a &lt;div&gt; element with class <code>.btn-group</code>, Bootstrap allows you to group a series of buttons together (on a single line) in a button group:</p>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">Apple</button>
+            <button type="button" class="btn btn-primary">Samsung</button>
+            <button type="button" class="btn btn-primary">Sony</button>
+        </div>
+        <p></p>
+        <p><strong>Tip:</strong> Instead of applying button sizes to every button in a group, use class .btn-group-* to size all buttons in the group.  Below we have buttons defined within a &lt;div&gt; element with class <code>.btn-group-lg</code>, which has the same effect as adding buttons with the <code>.btn-lg</code> class.</p>
+        <div class="btn-group btn-group-lg">
+            <button type="button" class="btn btn-primary">Apple</button>
+            <button type="button" class="btn btn-primary">Samsung</button>
+            <button type="button" class="btn btn-primary">Sony</button>
+        </div>
+        <p></p>
+
+        <h2>Vertical Button Groups</h2>
+        <p>Use the class <code>.btn-group-vertical</code> to create a vertical button group:</p>
+        <div class="btn-group-vertical">
+            <button type="button" class="btn btn-primary">Apple</button>
+            <button type="button" class="btn btn-primary">Samsung</button>
+            <button type="button" class="btn btn-primary">Sony</button>
+        </div>
+        <p></p>
+
+        <h2>Nesting Button Groups & Drop Down Menus</h2>
+        <p>Nest button groups to create drop down menus:</p>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">Apple</button>
+            <button type="button" class="btn btn-primary">Samsung</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Sony <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Tablet</a></li>
+                    <li><a href="#">Smartphone</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!--http://www.w3schools.com/bootstrap/bootstrap_buttons.asp-->

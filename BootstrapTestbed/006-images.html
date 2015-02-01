@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- width=device-width : Set the page width to that of the device for lovely horizontal fluidity-->
+    <!-- initial-scale=1 : set the initial zoomlevel the the page is first loaded-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Pull in bootstrap & its jQuery dependency -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <h2>Rounded Corners</h2>
+        <p>The <code>.img-rounded</code> class adds rounded corners to an image (not available in IE8):</p>
+        <img src="StuartPearce.jpg" class="img-rounded" alt="Stuart Pearce" width="464" height="261"> 
+
+        <h2>Circle</h2>
+        <p>The <code>.img-circle</code> class shapes the image to a circle (not available in IE8):</p>        
+        <img src="StuartPearce.jpg" class="img-circle" alt="Stuart Pearce" width="464" height="261"> 
+
+        <h2>Thumbnail</h2>
+        <p>The <code>.img-thumbnail</code> class shapes the image to a thumbnail:</p>
+        <img src="StuartPearce.jpg" class="img-thumbnail" alt="Stuart Pearce" width="464" height="261"> 
+
+        <h2>Responsive Images</h2>
+        <p>The <code>.img-responsive</code> causes an image to scale nicely to the parent element:</p>
+        <img src="StuartPearce.jpg" class="img-responsive" alt="Stuart Pearce" width="464" height="261"> 
+
+        <h2>Image Gallery</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <p>Psycho!</p>
+                <img src="StuartPearce.jpg" class="img-thumbnail"/>
+            </div>
+            <div class="col-md-4">
+                <p>Psycho!</p>
+                <img src="StuartPearce.jpg" class="img-thumbnail" />
+            </div>
+            <div class="col-md-4">
+                <p>Psycho!</p>
+                <img src="StuartPearce.jpg" class="img-thumbnail" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!--http://www.w3schools.com/bootstrap/bootstrap_images.asp-->

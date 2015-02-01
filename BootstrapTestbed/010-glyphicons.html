@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- width=device-width : Set the page width to that of the device for lovely horizontal fluidity-->
+    <!-- initial-scale=1 : set the initial zoomlevel the the page is first loaded-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Pull in bootstrap & its jQuery dependency -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <h2>Glyphicons</h2>
+        <p>A glyphicon is inserted with the following syntax:</p>
+        <blockquote>
+            <p><code>&lt;span class=&quot;glyphicon glyphicon-<i>name</i>&quot;&gt;&lt;/span&gt;</code></p>
+        </blockquote>
+        
+        <p>Envelope icon: <span class="glyphicon glyphicon-envelope"></span></p>
+        <p>
+            Envelope icon as a link:
+            <a href="#"><span class="glyphicon glyphicon-envelope"></span></a>
+        </p>
+        <p>Search icon: <span class="glyphicon glyphicon-search"></span></p>
+        <p>
+            Search icon on a button:
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>
+        </p>
+        <p>
+            Search icon on a styled button:
+            <button type="button" class="btn btn-info">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>
+        </p>
+        <p>Print icon: <span class="glyphicon glyphicon-print"></span></p>
+        <p>
+            Print icon on a styled link button:
+            <a href="#" class="btn btn-success btn-lg">
+                <span class="glyphicon glyphicon-print"></span> Print
+            </a>
+        </p>
+
+        <h2>Badges</h2>
+        <p>Badges are numerical indicators of how many items are associated with a link.</p>
+        <p>Use the <code>.badge</code> class within &lt;span&gt; elements to create badges:</p>
+        <a href="#">News <span class="badge">5</span></a><br>
+        <a href="#">Comments <span class="badge">10</span></a><br>
+        <a href="#">Updates <span class="badge">2</span></a>
+        <p>Above the numbers (5, 10 and 2) are the badges.</p>
+        <br />
+        <p>Badges can also be used inside other elements, such as buttons:</p>
+        <button type="button" class="btn btn-primary">Primary <span class="badge">7</span></button>
+    </div>
+</body>
+</html>
+
+<!--http://www.w3schools.com/bootstrap/bootstrap_buttons.asp-->
