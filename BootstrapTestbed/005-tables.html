@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- width=device-width : Set the page width to that of the device for lovely horizontal fluidity-->
+    <!-- initial-scale=1 : set the initial zoomlevel the the page is first loaded-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Pull in bootstrap & its jQuery dependency -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <h2>Regular HTML Table</h2>
+        <p>Without Bootstrap classes a simple table looks like this:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+
+        <h2>Basic Bootstrap Table</h2>
+        <p>A basic Bootstrap table has a light padding and only horizontal dividers.</p>
+        <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        
+        <h2>Striped Bootstrap Table</h2>
+        <p>The .table-striped class adds zebra-stripes to a table:</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+
+        <h2>Bordered Bootstrap Table</h2>
+        <p>The .table-bordered class adds borders on all sides of the table and cells:</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+
+        <h2>Bootstrap Table With Hover State</h2>
+        <p>The .table-hover class enables a hover state on table rows:</p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+
+        <h2>Condensed Bootstrap Table</h2>
+        <p>The .table-condensed class makes a table more compact by cutting cell padding in half:</p>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+
+        <h2>Contextual Classes</h2>
+        <p>Contextual classes can be used to color table rows or table cells.</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="success">
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr class="danger">
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr class="info">
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>The contextual classes are:</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="active">
+                    <td><code>.active</code></td>
+                    <td class="active">Applies the hover color to the table row or table cell</td>
+                </tr>
+                <tr class="success">
+                    <td><code>.success</code></td>
+                    <td class="success">Indicates a successful or positive action</td>
+                </tr>
+                <tr class="info">
+                    <td><code>.info</code></td>
+                    <td class="info">Indicates a neutral informative change or action</td>
+                </tr>
+                <tr class="warning">
+                    <td><code>.warning</code></td>
+                    <td class="warning">Indicates a warning that might need attention</td>
+                </tr>
+                <tr class="danger">
+                    <td><code>.danger</code></td>
+                    <td class="danger">Indicates a dangerous or potentially negative action</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+</body>
+</html>
+
+<!--http://www.w3schools.com/bootstrap/bootstrap_tables.asp-->
