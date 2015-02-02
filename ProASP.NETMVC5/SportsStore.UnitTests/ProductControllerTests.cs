@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -155,6 +156,56 @@ namespace SportsStore.UnitTests
             Assert.AreEqual(numItemsCat1, 2);
             Assert.AreEqual(numItemsCat2, 2);
             Assert.AreEqual(numItemsCat3, 1);
+        }
+
+        [TestMethod]
+        public void TestGetImageData()
+        {
+            // Arrange
+            Product product2 = new Product
+            {
+                ProductId = 2,
+                Name = "Test",
+                ImageData = new byte[] { },
+                ImageMimeType = "image/png"
+            };
+
+            Mock<IProductRepository> mockBuilder = new Mock<IProductRepository>();
+            mockBuilder.Setup(m => m.Products).Returns(new Product[] {
+                new Product {ProductId = 1, Name = "P1"},
+                product2,
+                new Product {ProductId = 3, Name = "P3"}
+            });
+
+            ProductController controller = new ProductController(mockBuilder.Object);
+
+            // Act
+            ActionResult result = controller.GetImage(2);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(FileResult));
+            FileResult fileResult = (FileResult)result;
+            Assert.AreEqual(product2.ImageMimeType, fileResult.ContentType);
+        }
+
+        [TestMethod]
+        public void TestGetImageDataFailsForInvalidProductId()
+        {
+            // Arrange
+            Mock<IProductRepository> productRepositoryMock = new Mock<IProductRepository>();
+            productRepositoryMock.Setup(m => m.Products).Returns(new Product[] {
+                new Product {ProductId = 1, Name = "P1"},
+                new Product {ProductId = 2, Name = "P2"}
+            });
+
+            ProductController controller = new ProductController(productRepositoryMock.Object);
+
+            // Act
+            ActionResult result = controller.GetImage(666);
+
+            // Assert
+            Assert.IsNull(result);
         }
     }
 }
