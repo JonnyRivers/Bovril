@@ -25,5 +25,13 @@ namespace UrlsAndRoutes.Controllers
 
             return View();
         }
+
+        public ActionResult Chrome()
+        {
+            ViewBag.Controller = "Home";
+            ViewBag.Action = "Chrome";
+
+            return View("ActionName");
+        }
     }
 }
