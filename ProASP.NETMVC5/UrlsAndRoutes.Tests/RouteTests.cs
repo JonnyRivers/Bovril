@@ -97,17 +97,17 @@ namespace UrlsAndRoutes.Tests
         [TestMethod]
         public void TestRouteMatch()
         {
-            // check for a URL that is covered in the app
-            TestRouteMatch("~/Admin/Index", "Admin", "Index");
+            TestRouteMatch("~/", "Home", "Index");
+            TestRouteMatch("~/Home", "Home", "Index");
+            TestRouteMatch("~/Home/Index", "Home", "Index");
 
-            // check for a URL that isn't covered in the app, but still matches
-            TestRouteMatch("~/One/Two", "One", "Two");
+            TestRouteMatch("~/Home/About", "Home", "About");
+            TestRouteMatch("~/Home/About/MyId", "Home", "About", new { id = "MyId" });
+            TestRouteMatch("~/Home/About/MyId/More/Segments", "Home", "About", new { id = "MyId", catchall = "More/Segments" });
 
-            // check that too many arguments fails
-            TestRouteFail("~/Admin/Index/Segment");
-
-            // check that too few arguments fails
-            TestRouteFail("~/Admin");
+            TestRouteFail("~/Home/OtherAction");
+            TestRouteFail("~/Account/Index");
+            TestRouteFail("~/Account/About");
         }
     }
 }

@@ -11,9 +11,25 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-            routes.MapRoute("MyRoute","{controller}/{action}");
+            routes.MapRoute(
+                "MyRoute",                                          // route name
+                "{controller}/{action}/{id}/{*catchall}",           // url
+                new                                                 // default values for url segments
+                {
+                    controller = "Home",
+                    action = "Index",
+                    id = UrlParameter.Optional
+                },
+                new                                                 // constraints
+                {
+                    controller = "^H.*",                            // controller must begin(^) with H
+                    action = "^Index$|^About$",                     // action must be either Index or About
+                    //httpMethod = new HttpMethodConstraint("GET")  // THIS KILLS THE TESTS!
+                },
+                new[]                                              // namespaces to look in
+                {
+                    "UrlsAndRoutes.Controllers"
+                });
         }
     }
 }
