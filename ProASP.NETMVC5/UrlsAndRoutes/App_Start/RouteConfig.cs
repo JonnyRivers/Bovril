@@ -14,7 +14,7 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.MapMvcAttributeRoutes();
+            //routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
                 "MyRoute",

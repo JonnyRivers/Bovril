@@ -103,11 +103,6 @@ namespace UrlsAndRoutes.Tests
 
             TestRouteMatch("~/Home/About", "Home", "About");
             TestRouteMatch("~/Home/About/MyId", "Home", "About", new { id = "MyId" });
-            TestRouteMatch("~/Home/About/MyId/More/Segments", "Home", "About", new { id = "MyId", catchall = "More/Segments" });
-
-            TestRouteFail("~/Home/OtherAction");
-            TestRouteFail("~/Account/Index");
-            TestRouteFail("~/Account/About");
         }
     }
 }
