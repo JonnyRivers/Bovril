@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -13,5 +12,11 @@
 <body>
     <div>The controller is: @ViewBag.Controller</div>
     <div>The controller is: @ViewBag.Action</div>
+    <div>
+        @Url.Action("Index", "Home", new { id = "MyId" })
+    </div>
+    <div>
+        @Html.ActionLink("A whole new area", "Index", new { area = "Admin", controller = "Home" })
+    </div>
 </body>
 </html>
