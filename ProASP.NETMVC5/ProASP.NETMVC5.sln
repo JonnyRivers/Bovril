@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllersAndActions", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllersAndActions.Tests", "ControllersAndActions.Tests\ControllersAndActions.Tests.csproj", "{E11222E9-C494-40D1-8269-0CC303BF0D77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filters", "Filters\Filters.csproj", "{D56E7490-BB40-4C8B-85E3-2424DB942305}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{E11222E9-C494-40D1-8269-0CC303BF0D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E11222E9-C494-40D1-8269-0CC303BF0D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E11222E9-C494-40D1-8269-0CC303BF0D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56E7490-BB40-4C8B-85E3-2424DB942305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56E7490-BB40-4C8B-85E3-2424DB942305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56E7490-BB40-4C8B-85E3-2424DB942305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56E7490-BB40-4C8B-85E3-2424DB942305}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
