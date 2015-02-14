@@ -25,7 +25,7 @@ namespace Filters.Controllers
             return "This is the List action on the Home controller";
         }
 
-        [RangeException]
+        [HandleError(ExceptionType = typeof(ArgumentOutOfRangeException), View = "RangeError")]
         public String RangeTest(int id)
         {
             if (id > 100)
@@ -36,6 +36,18 @@ namespace Filters.Controllers
             {
                 throw new ArgumentOutOfRangeException("id", id, "");
             }
+        }
+
+        [CustomAction]
+        public String FilterTest()
+        {
+            return "This is the FilterTest action";
+        }
+
+        [ProfileAction]
+        public String ProfileTest()
+        {
+            return "This is the ActionFilterTest action";
         }
     }
 }

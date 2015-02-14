@@ -1,0 +1,24 @@
+﻿@model HandleErrorInfo
+
+@{
+    ViewBag.Title = "Sorry, there was a problem!";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RangeError</title>
+</head>
+<body>
+    <div> 
+        <h2>Sorry</h2>
+        <p>The value @(((ArgumentOutOfRangeException)Model.Exception).ActualValue) was out of the expected range.</p>
+        <p>@Model.Exception.ToString().</p>
+        <div>
+            @Html.ActionLink("Change the value and try again", "Index");
+        </div>
+    </div>
+</body>
+</html>

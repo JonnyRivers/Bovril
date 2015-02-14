@@ -10,7 +10,10 @@ namespace Filters.Infrastructure
             if (!filterContext.ExceptionHandled &&
                 filterContext.Exception is ArgumentOutOfRangeException)
             {
-                filterContext.Result = new RedirectResult("~/Content/RangeErrorPage.html");
+                int value = (int)(((ArgumentOutOfRangeException)filterContext.Exception).ActualValue);
+                filterContext.Result = new ViewResult{
+                    ViewName = "RangeError",
+                    ViewData = new ViewDataDictionary<int>(value)};
                 filterContext.ExceptionHandled = true;
             }
         }
