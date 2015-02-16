@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +11,8 @@ namespace Filters.Controllers
 {
     public class HomeController : Controller
     {
+        private Stopwatch m_stopwatch;
+
         [Authorize(Users="admin")]
         public String Index()
         {
@@ -44,7 +47,23 @@ namespace Filters.Controllers
             return "This is the FilterTest action";
         }
 
+        // Filtering via the Controller class's virtual filter methods.
+        // Here we add profiling to all controller actions.
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            m_stopwatch = Stopwatch.StartNew();
+        }
+
+        protected override void OnResultExecuted(ResultExecutedContext filterContext)
+        {
+            m_stopwatch.Stop();
+            filterContext.HttpContext.Response.Write(
+                String.Format("<div>Total elapsed time: {0:F6}</div>", m_stopwatch.Elapsed.TotalSeconds));
+        }
+
         [ProfileAction]
+        [ProfileResult]
+        [ProfileAll]
         public String ProfileTest()
         {
             return "This is the ActionFilterTest action";
