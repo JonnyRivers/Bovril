@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filters", "Filters\Filters.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerExtensibility", "ControllerExtensibility\ControllerExtensibility.csproj", "{39A82468-5241-45B0-A0C4-0E307AFFD2E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Views", "Views\Views.csproj", "{F33CAF58-2513-414E-833D-3156DF1D7B8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{39A82468-5241-45B0-A0C4-0E307AFFD2E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39A82468-5241-45B0-A0C4-0E307AFFD2E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39A82468-5241-45B0-A0C4-0E307AFFD2E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F33CAF58-2513-414E-833D-3156DF1D7B8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F33CAF58-2513-414E-833D-3156DF1D7B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F33CAF58-2513-414E-833D-3156DF1D7B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F33CAF58-2513-414E-833D-3156DF1D7B8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
