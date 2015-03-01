@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-using Views.Infrastructure;
+using WorkingWithRazor2.Infrastructure;
 
-namespace Views
+namespace WorkingWithRazor2
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -16,9 +16,8 @@ namespace Views
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            // Make sure we have just one IViewEngine implemenation, albeit a shonky one
             ViewEngines.Engines.Clear();
-            ViewEngines.Engines.Add(new DebugDataViewEngine());
+            ViewEngines.Engines.Add(new CustomLocationViewEngine());
         }
     }
 }
