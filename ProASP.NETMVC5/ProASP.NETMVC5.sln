@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Views", "Views\Views.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithRazor2", "WorkingWithRazor2\WorkingWithRazor2.csproj", "{F78F18CD-C3D6-4ADF-A953-08D15E1ADC63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperMethods", "HelperMethods\HelperMethods.csproj", "{8999DF56-447F-4D5E-8412-E04A583E0E24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{F78F18CD-C3D6-4ADF-A953-08D15E1ADC63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F78F18CD-C3D6-4ADF-A953-08D15E1ADC63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F78F18CD-C3D6-4ADF-A953-08D15E1ADC63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8999DF56-447F-4D5E-8412-E04A583E0E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8999DF56-447F-4D5E-8412-E04A583E0E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8999DF56-447F-4D5E-8412-E04A583E0E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8999DF56-447F-4D5E-8412-E04A583E0E24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

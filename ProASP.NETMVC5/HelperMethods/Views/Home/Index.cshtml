@@ -1,0 +1,53 @@
+﻿@using System
+@using HelperMethods.Infrastructure
+
+@model String
+
+@{
+    Layout = null;
+}
+
+<!--This is an example of an inline helper-->
+@helper ListArrayItems(String[] items) { 
+    <ul>
+        @foreach (string str in items) {
+            <li>@str</li>
+        }
+    </ul>
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        Here are the fruits:
+        @ListArrayItems(ViewBag.Fruits)<!--inline-->
+        @Html.ListArrayItems((String[])ViewBag.Fruits)<!--extension method-->
+    </div>
+
+    <div>
+        Here are the cities:
+        @ListArrayItems(ViewBag.Cities)<!--inline-->
+        @Html.ListArrayItems((String[])ViewBag.Cities)<!--extension method-->
+    </div>
+
+    <p>Here is the content from the view:</p>
+    <div style="border: thin solid black; padding: 10px">
+        Here is the message:
+        <p>@Model</p>
+    </div>
+
+    <!--See HelperMethods.Infrastructure.DisplayMessage to see how we need to use 
+        HtmlHelper.EncodeMessage() to prevent elements being rendered incorrectly.-->
+    <p>Here is the content from the helper method:</p>
+    <div style="border: thin solid black; padding: 10px">
+        Here is the message:
+        @Html.DisplayMessage(Model)
+    </div>
+</body>
+</html>

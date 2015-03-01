@@ -1,0 +1,34 @@
+﻿@model HelperMethods.Models.Person
+
+@{
+    ViewBag.Title = "CreatePerson";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreatePerson</h2>
+
+<!--Here we explicitly route the post to a route config in RouteConfig.RegisterRoutes()-->
+@using (Html.BeginRouteForm(
+    "FormRoute", 
+    new { }, 
+    FormMethod.Post, 
+    new { @class = "personClass", data_formType="person" }))
+{
+    <div class="dataElem">
+        <label>PersonId</label>
+        @Html.TextBoxFor(m => m.PersonId)
+    </div>
+    <div class="dataElem">
+        <label>FirstName</label>
+        @Html.TextBoxFor(m => m.FirstName)
+    </div>
+    <div class="dataElem">
+        <label>LastName</label>
+        @Html.TextBoxFor(m => m.LastName)
+    </div>
+    <div class="dataElem">
+        <label>Role</label>
+        @Html.EnumDropDownListFor(m => m.Role)
+    </div>
+    <input type="submit" value="Submit" />
+}
