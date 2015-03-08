@@ -16,21 +16,20 @@
     };
 }
 
+<!--by passing JSON data and building the view in javascript we reduce load on the server-->
 <script type="text/javascript">
-    function OnBegin() {
-        alert("This is the OnBegin callback");
-    }
-
-    function OnSuccess(data) {
-        alert("This is the OnSuccess callback: " + data);
-    }
-
-    function OnFailure(request, error) {
-        alert("This is the OnFailure callback: " + error);
-    }
-
-    function OnComplete(request, status) {
-        alert("This is the OnComplete callback: " + status);
+    function OnGetPeopleDataJsonSuccess(data) {
+        var target = $("#tableBody");
+        target.empty();
+        for (var i = 0; i < data.length; i++) {
+            var person = data[i];
+            target.append(
+                "<tr>" +
+                    "<td>" + person.FirstName + "</td>" +
+                    "<td>" + person.LastName + "</td>" +
+                    "<td>" + person.Role + "</td>" +
+                "</tr>");
+        }
     }
 </script>
 
@@ -65,6 +64,7 @@
     </div>
 }
 
+<!--here we create ajax links.  These use a different code path (GetPeopleDataJson) to show off Json processing-->
 <div>
     @foreach (String role in Enum.GetNames(typeof(Role)))
     {
@@ -76,11 +76,8 @@
                 new AjaxOptions
                 {
                     UpdateTargetId = "tableBody",
-                    Url = Url.Action("GetPeopleData", new { selectedRoleText = role }),
-                    OnBegin = "OnBegin",
-                    OnSuccess = "OnSuccess",
-                    OnFailure = "OnFailure",
-                    OnComplete = "OnComplete"
+                    Url = Url.Action("GetPeopleDataJson", new { selectedRoleText = role }),
+                    OnSuccess = "OnGetPeopleDataJsonSuccess"
                 }
             )
         </div>
