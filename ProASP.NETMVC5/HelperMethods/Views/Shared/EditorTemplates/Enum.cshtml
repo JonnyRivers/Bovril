@@ -1,0 +1,5 @@
+﻿@model Enum
+
+<!--This rather delicious piece of magic makes all enum properties render as specified below.-->
+<!--Per esempio: public Role Role { get; set; } in class Person-->
+@Html.EnumDropDownListFor(m => m)

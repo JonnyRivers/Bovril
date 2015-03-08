@@ -1,0 +1,17 @@
+﻿@model Boolean?
+
+<!--This just shows in more detail how built in types are overriden.-->
+<!--It is the location (Views/Shared/EditorTemplates) that sees this taken into account.-->
+
+@if (ViewData.ModelMetadata.IsNullableValueType && Model == null)
+{
+    @:(True) (False) <b>(Not Set)</b>
+}
+else if (Model.Value)
+{
+    @:<b>(True)</b> (False) (Not Set)
+}
+else
+{
+    @:(True) <b>(False)</b> (Not Set)
+}

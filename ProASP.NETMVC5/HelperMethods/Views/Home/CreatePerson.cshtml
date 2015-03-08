@@ -3,9 +3,10 @@
 @{
     ViewBag.Title = "CreatePerson";
     Layout = "/Views/Shared/_Layout.cshtml";
+    Html.EnableClientValidation(false);
 }
 
-<h2>CreatePerson</h2>
+<h2>CreatePerson: @Html.LabelForModel()</h2>
 
 <!--Here we explicitly route the post to a route config in RouteConfig.RegisterRoutes()-->
 @using (Html.BeginRouteForm(
@@ -14,21 +15,12 @@
     FormMethod.Post, 
     new { @class = "personClass", data_formType="person" }))
 {
-    <div class="dataElem">
-        <label>PersonId</label>
-        @Html.TextBoxFor(m => m.PersonId)
+    <div class="column">
+        @Html.EditorForModel()
     </div>
-    <div class="dataElem">
-        <label>FirstName</label>
-        @Html.TextBoxFor(m => m.FirstName)
+    <div class="column">
+        @Html.EditorFor(m => m.HomeAddress)
     </div>
-    <div class="dataElem">
-        <label>LastName</label>
-        @Html.TextBoxFor(m => m.LastName)
-    </div>
-    <div class="dataElem">
-        <label>Role</label>
-        @Html.EnumDropDownListFor(m => m.Role)
-    </div>
+
     <input type="submit" value="Submit" />
 }
