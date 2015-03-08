@@ -1,0 +1,88 @@
+﻿@using HelperMethods.Models
+
+@model String
+
+@{
+    ViewBag.Title = "GetPeople";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    AjaxOptions ajaxOptions = new AjaxOptions
+    {
+        UpdateTargetId = "tableBody",
+        Url = Url.Action("GetPeopleData"),
+        LoadingElementId = "loading",
+        LoadingElementDuration = 1000,
+        Confirm = "Do you wish to request new data?"
+    };
+}
+
+<script type="text/javascript">
+    function OnBegin() {
+        alert("This is the OnBegin callback");
+    }
+
+    function OnSuccess(data) {
+        alert("This is the OnSuccess callback: " + data);
+    }
+
+    function OnFailure(request, error) {
+        alert("This is the OnFailure callback: " + error);
+    }
+
+    function OnComplete(request, status) {
+        alert("This is the OnComplete callback: " + status);
+    }
+</script>
+
+<h2>GetPeople</h2>
+
+<div id="loading" class="load" style="display:none">
+    <p>Loading Data...</p>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        @Html.Action("GetPeopleData", new { selectedRoleText = Model })
+    </tbody>
+</table>
+
+@using (Ajax.BeginForm(ajaxOptions))
+{
+    <div>
+        <!--note that the ddl name must match the function argument - public ActionResult GetPeople(String selectedRoleText)-->
+        @Html.DropDownList(
+             "selectedRoleText",
+            new SelectList(
+                 new[] { "All" }.Concat(Enum.GetNames(typeof(Role)))))
+        <button type="submit">Submit</button>
+    </div>
+}
+
+<div>
+    @foreach (String role in Enum.GetNames(typeof(Role)))
+    {
+        <div class="ajaxLink">
+            @Ajax.ActionLink(
+                role,
+                "GetPeople",
+                new { selectedRoleText = role },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "tableBody",
+                    Url = Url.Action("GetPeopleData", new { selectedRoleText = role }),
+                    OnBegin = "OnBegin",
+                    OnSuccess = "OnSuccess",
+                    OnFailure = "OnFailure",
+                    OnComplete = "OnComplete"
+                }
+            )
+        </div>
+    }
+</div>
