@@ -1,0 +1,12 @@
+﻿@model TaxMe.Models.TaxBreakdown
+
+@{
+    ViewBag.Title = "TaxBreakdown";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TaxBreakdown</h2>
+
+<div>
+    <label>Net Annual Income</label>@Html.DisplayFor(m => m.NetAnnualIncome)
+</div>

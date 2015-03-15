@@ -1,0 +1,18 @@
+﻿@model TaxMe.Models.IncomeAndDeductions
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div>
+    
+    @Html.BeginForm()
+    {
+        <label>Gross Annual Income</label>@Html.EditorFor(m => m.GrossAnnualIncome)
+        <input type="submit" value="Submit" />
+    }
+</div>
+
