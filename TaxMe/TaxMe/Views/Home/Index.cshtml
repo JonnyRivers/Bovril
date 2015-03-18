@@ -5,14 +5,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<div>
-    
-    @Html.BeginForm()
-    {
-        <label>Gross Annual Income</label>@Html.EditorFor(m => m.GrossAnnualIncome)
-        <input type="submit" value="Submit" />
-    }
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Enter your income and deductions</h3>
+    </div>
+    <div class="panel-body">
+        @using(Html.BeginForm()) {
+            <div class="form-group">
+                <label>Gross Annual Income:</label>
+                @Html.TextBoxFor(m => m.GrossAnnualIncome, new { @class = "form-control" })
+            </div>
+            <input type="submit" value="Generate Tax Breakdown" class="btn btn-primary" />
+        }
+    </div>
 </div>
 
