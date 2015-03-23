@@ -18,11 +18,13 @@ namespace TaxMe.Controllers
         [HttpPost]
         public ActionResult Index(IncomeAndDeductions incomeAndDeductions)
         {
-            TaxBreakdown taxBreakdown = new TaxBreakdown
-            {
-                NetAnnualIncome = incomeAndDeductions.GrossAnnualIncome * 0.8m
-            };
+            TaxBreakdown taxBreakdown = TaxCalculator.Calculate(incomeAndDeductions);
             return View("TaxBreakdown", taxBreakdown);
+        }
+
+        public ActionResult TaxBreakdown()
+        {
+            return View();
         }
     }
 }

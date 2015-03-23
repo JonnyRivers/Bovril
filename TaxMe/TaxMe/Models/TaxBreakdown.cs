@@ -7,6 +7,25 @@ namespace TaxMe.Models
 {
     public class TaxBreakdown
     {
-        public decimal NetAnnualIncome { get; set; }
+        private readonly decimal m_grossAnnualIncome;
+        private readonly decimal m_taxableGrossAnnualIncome;
+        private readonly Tax[] m_taxes;
+        private readonly decimal m_totalTax;
+        private readonly decimal m_netAnnualIncome;
+
+        public decimal GrossAnnualIncome { get { return m_grossAnnualIncome; } }
+        public decimal TaxableGrossAnnualIncome { get { return m_taxableGrossAnnualIncome; } }
+        public IEnumerable<Tax> Taxes { get { return m_taxes; } }
+        public decimal TotalTax { get { return m_totalTax; } }
+        public decimal NetAnnualIncome { get { return m_netAnnualIncome; } }
+
+        public TaxBreakdown(decimal grossAnnualIncome, decimal taxableGrossAnnualIncome, IEnumerable<Tax> taxes)
+        {
+            m_grossAnnualIncome = grossAnnualIncome;
+            m_taxableGrossAnnualIncome = taxableGrossAnnualIncome;
+            m_taxes = taxes.ToArray();
+            m_totalTax = m_taxes.Sum(tax => tax.Amount);
+            m_netAnnualIncome = m_grossAnnualIncome - m_totalTax;
+        }
     }
 }

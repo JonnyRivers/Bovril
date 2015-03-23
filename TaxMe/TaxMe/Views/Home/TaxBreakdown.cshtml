@@ -1,4 +1,5 @@
-﻿@model TaxMe.Models.TaxBreakdown
+﻿@using TaxMe.Models
+@model TaxBreakdown
 
 @{
     ViewBag.Title = "TaxBreakdown";
@@ -8,5 +9,31 @@
 <h2>TaxBreakdown</h2>
 
 <div>
+    <label>Gross Annual Income</label>@Html.DisplayFor(m => m.GrossAnnualIncome)
+    <label>Taxable Gross Annual Income</label>@Html.DisplayFor(m => m.TaxableGrossAnnualIncome)
+    <table>
+        <thead>
+            <tr><th>Tax</th><th>Detail</th><th>Amount</th></tr>
+        </thead>
+        <tbody>
+            @foreach (Tax tax in Model.Taxes)
+            {
+                foreach (TaxLine taxLine in tax.Lines)
+                {
+                    <tr>
+                        <td>@taxLine.Name</td>
+                        <td>@taxLine.Rate</td>
+                        <td>$@taxLine.Amount</td>
+                    </tr>
+                }
+                <tr>
+                    <td>@tax.Name</td>
+                    <td></td>
+                    <td>$@tax.Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <label>Total Tax</label>@Html.DisplayFor(m => m.TotalTax)
     <label>Net Annual Income</label>@Html.DisplayFor(m => m.NetAnnualIncome)
 </div>

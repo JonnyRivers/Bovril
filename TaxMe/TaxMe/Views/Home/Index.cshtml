@@ -12,8 +12,16 @@
     <div class="panel-body">
         @using(Html.BeginForm()) {
             <div class="form-group">
-                <label>Gross Annual Income:</label>
+                <label>Gross Annual Income ($):</label>
                 @Html.TextBoxFor(m => m.GrossAnnualIncome, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Total Deductions ($):</label>
+                @Html.TextBoxFor(m => m.TotalDeductions, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>State:</label>
+                @Html.EditorFor(m => m.State, new { @class = "form-control" })
             </div>
             <input type="submit" value="Generate Tax Breakdown" class="btn btn-primary" />
         }
