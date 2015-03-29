@@ -108,8 +108,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FederalTaxTable.cs" />
+    <Compile Include="Models\FederalTaxTableEntry.cs" />
     <Compile Include="Models\IncomeAndDeductions.cs" />
     <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Tax.cs" />
     <Compile Include="Models\TaxBreakdown.cs" />
     <Compile Include="Models\TaxCalculator.cs" />

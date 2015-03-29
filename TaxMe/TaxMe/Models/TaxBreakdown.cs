@@ -14,15 +14,13 @@ namespace TaxMe.Models
         private readonly decimal m_netAnnualIncome;
 
         public decimal GrossAnnualIncome { get { return m_grossAnnualIncome; } }
-        public decimal TaxableGrossAnnualIncome { get { return m_taxableGrossAnnualIncome; } }
         public IEnumerable<Tax> Taxes { get { return m_taxes; } }
         public decimal TotalTax { get { return m_totalTax; } }
         public decimal NetAnnualIncome { get { return m_netAnnualIncome; } }
 
-        public TaxBreakdown(decimal grossAnnualIncome, decimal taxableGrossAnnualIncome, IEnumerable<Tax> taxes)
+        public TaxBreakdown(decimal grossAnnualIncome, IEnumerable<Tax> taxes)
         {
             m_grossAnnualIncome = grossAnnualIncome;
-            m_taxableGrossAnnualIncome = taxableGrossAnnualIncome;
             m_taxes = taxes.ToArray();
             m_totalTax = m_taxes.Sum(tax => tax.Amount);
             m_netAnnualIncome = m_grossAnnualIncome - m_totalTax;
