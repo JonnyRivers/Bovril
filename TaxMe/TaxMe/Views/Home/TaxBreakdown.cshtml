@@ -7,6 +7,7 @@
 }
 
 <div class="container-fluid">
+    <h4>Tax Breakdown</h4>
     <table class="table table-bordered">
         <tbody>
             <tr>
@@ -30,4 +31,20 @@
             </tr>
         </tbody>
     </table>
+
+    @foreach (Tax tax in Model.Taxes) { 
+        <h4>@tax.Name</h4>
+        <table class="table table-bordered">
+            <tbody>
+                @foreach(TaxLine taxLine in tax.Lines)
+                { 
+                    <tr>
+                        <td>@taxLine.Name</td>
+                        <td>@taxLine.Rate</td>
+                        <td>$@taxLine.Amount.ToString("0.00")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 </div>

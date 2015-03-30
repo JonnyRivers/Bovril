@@ -8,7 +8,6 @@ namespace TaxMe.Models
     public class TaxBreakdown
     {
         private readonly decimal m_grossAnnualIncome;
-        private readonly decimal m_taxableGrossAnnualIncome;
         private readonly Tax[] m_taxes;
         private readonly decimal m_totalTax;
         private readonly decimal m_netAnnualIncome;

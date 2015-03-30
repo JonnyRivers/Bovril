@@ -5,7 +5,7 @@ using System.Web;
 
 namespace TaxMe.Models
 {
-    public class FederalTaxTableEntry
+    public class TaxTableEntry
     {
         private readonly decimal m_limit;
         private readonly decimal m_rate;
@@ -13,7 +13,7 @@ namespace TaxMe.Models
         internal decimal Limit { get { return m_limit; } }
         internal decimal Rate { get { return m_rate; } }
 
-        internal FederalTaxTableEntry(decimal limit, decimal rate)
+        internal TaxTableEntry(decimal limit, decimal rate)
         {
             m_limit = limit;
             m_rate = rate;
