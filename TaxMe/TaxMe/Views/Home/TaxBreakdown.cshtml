@@ -11,23 +11,23 @@
     <table class="table table-bordered">
         <tbody>
             <tr>
-                <td>Gross Annual Income</td>
-                <td>$@Html.DisplayFor(m => m.GrossAnnualIncome)</td>
+                <td class="col-lg-10">Gross Annual Income</td>
+                <td class="col-lg-2">$@Html.DisplayFor(m => m.GrossAnnualIncome)</td>
             </tr>
             @foreach (Tax tax in Model.Taxes)
             {
                 <tr>
-                    <td>@tax.Name</td>
-                    <td>$@tax.Amount.ToString("0.00")</td>
+                    <td class="col-lg-10">@tax.Name</td>
+                    <td class="col-lg-2">$@tax.Amount.ToString("0.00")</td>
                 </tr>
             }
             <tr>
-                <td>Total Tax</td>
-                <td>$@Html.DisplayFor(m => m.TotalTax)</td>
+                <td class="col-lg-10">Total Tax</td>
+                <td class="col-lg-2">$@Html.DisplayFor(m => m.TotalTax)</td>
             </tr>
             <tr>
-                <td>Net Annual Income</td>
-                <td>$@Html.DisplayFor(m => m.NetAnnualIncome)</td>
+                <td class="col-lg-10">Net Annual Income</td>
+                <td class="col-lg-2">$@Html.DisplayFor(m => m.NetAnnualIncome)</td>
             </tr>
         </tbody>
     </table>
@@ -39,9 +39,9 @@
                 @foreach(TaxLine taxLine in tax.Lines)
                 { 
                     <tr>
-                        <td>@taxLine.Name</td>
-                        <td>@taxLine.Rate</td>
-                        <td>$@taxLine.Amount.ToString("0.00")</td>
+                        <td class="col-lg-8">@taxLine.Name</td>
+                        <td class="col-lg-2">@taxLine.Rate</td>
+                        <td class="col-lg-2">$@taxLine.Amount.ToString("0.00")</td>
                     </tr>
                 }
             </tbody>
