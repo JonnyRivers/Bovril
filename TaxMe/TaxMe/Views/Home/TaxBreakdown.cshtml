@@ -10,13 +10,25 @@
   <h4>Tax Breakdown</h4>
     <table class="table col-lg-1 col-lg-1 col-lg-7 col-lg-3">
       <tbody>
-        <tr class="row lead">
+        <tr class="lead">
           <td colspan="3">Gross Annual Income</td>
           <td colspan="3" class="text-right">@Model.GrossAnnualIncome.ToString("#,##0.00")</td>
         </tr>
+        <tr class="lead">
+          <td colspan="3">Pension Deduction</td>
+          <td colspan="3" class="text-right">@Model.PensionDeduction.ToString("#,##0.00")</td>
+        </tr>
+        <tr class="lead">
+          <td colspan="3">Pre Tax Deductions</td>
+          <td colspan="3" class="text-right">@Model.PreTaxDeductions.ToString("#,##0.00")</td>
+        </tr>
+        <tr class="lead">
+          <td colspan="3">Taxable Income</td>
+          <td colspan="3" class="text-right">@Model.TaxableIncome.ToString("#,##0.00")</td>
+        </tr>
         @foreach (Tax tax in Model.Taxes)
         {
-          <tr class="row">
+          <tr>
             <td></td>
             <td colspan="2">@tax.Name</td>
             <td class="text-right">@tax.Amount.ToString("#,##0.00")</td>
@@ -25,7 +37,7 @@
           {
             foreach (TaxLine taxLine in tax.Lines)
             {
-              <tr class="small row">
+              <tr class="small">
                 <td></td>
                 <td></td>
                 <td>@taxLine.Name</td>
@@ -34,11 +46,15 @@
             }
           }
         }
-        <tr class="row lead">
+        <tr class="lead">
           <td colspan="3">Total Tax</td>
           <td class="text-right">@Model.TotalTax.ToString("#,##0.00")</td>
         </tr>
-        <tr class="row lead">
+        <tr class="lead">
+          <td colspan="3">Post Tax Deductions</td>
+          <td colspan="3" class="text-right">@Model.PostTaxDeductions.ToString("#,##0.00")</td>
+        </tr>
+        <tr class="lead">
           <td colspan="3">Net Annual Income</td>
           <td class="text-right">@Model.NetAnnualIncome.ToString("#,##0.00")</td>
         </tr>
