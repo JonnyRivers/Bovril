@@ -1,0 +1,210 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/d3/d3.min.js"></script>
+</head>
+
+<body>
+    <div id="chart1" class="chart"></div>
+    <br />
+    <div id="chart2" class="chart"></div>
+    <br />
+    <svg id="chart3" class="chart"></svg>
+    <br />
+    <br />
+    <svg id="chart4" class="chart"></svg>
+    <br />
+
+    <script>
+    // Adding random shit with d3.js
+    var body = d3.select("body");
+    body.append("br");
+    var div = body.append("div");
+    div.html("Hello, world!");
+
+    // 1) array of ints -> graph
+    // Read JSON from the Home controller
+    $.getJSON('@Url.Action("GetNumbers", "Home")', function (result) {
+        // read the ages from the Person objects into an array of numbers
+        data = result;
+
+        // Render the graph
+        var x = d3.scale.linear()
+            .domain([0, d3.max(data)])
+            .range([0, 420]);
+
+        var chart = d3.select("#chart1");
+        chart
+            .selectAll("div")
+            .data(data)
+            .enter().append("div")
+            .style("width", function (d) { return x(d) + "px"; })
+            .text(function (d) { return d; });
+    });
+
+
+    // 2) array of people -> graph
+    // Read JSON from the Home controller
+    $.getJSON('@Url.Action("GetPeople", "Home")', function (people) {
+
+        // Calculate the max age for our 'domain->range' function
+        var maxAge = d3.max(people, function (person) {
+            return person.Age;
+        });
+
+        // Create a 'domain->range' linear transform function
+        var domainToRangeFun = d3.scale.linear()
+            .domain([0, maxAge])
+            .range([0, 420]);
+
+        // Select the chart container using a class selector
+        var chart = d3.select("#chart2");
+
+        // Select the elements we want to exist
+        var bar = chart.selectAll("div");
+
+        // Join the data to the selection using selection.data
+        var barUpdate = bar.data(people);
+
+        // Get the 'enter' selection and append a div element
+        var barEnter = barUpdate.enter().append("div");
+
+        // Set the width of each new bar
+        barEnter.style("width", function (person) {
+            return domainToRangeFun(person.Age) + "px";
+        });
+
+        // Set the text content of each bar
+        barEnter.text(function (person) {
+            return person.FirstName + " " + person.LastName + " (" + person.Age + ")";
+        });
+    });
+
+
+    // 3) array of people -> SVG graph
+    // Read JSON from the Home controller
+    $.getJSON('@Url.Action("GetPeople", "Home")', function (people) {
+
+        var graphWidth = 420;
+        var barHeight = 20;
+
+        // Calculate the max age for our 'domain->range' function
+        var maxAge = d3.max(people, function (person) {
+            return person.Age;
+        });
+
+        // Create a 'domain->range' linear transform function
+        var domainToRangeFun = d3.scale.linear()
+            .domain([0, maxAge])
+            .range([0, graphWidth]);
+
+        // Select the chart container using a class selector
+        var chart = d3.select("#chart3");
+
+        // Setup the chart's attributes
+        chart.attr("width", graphWidth);
+        chart.attr("height", barHeight * people.length);
+
+        // Select the elements we want to exist
+        var bar = chart.selectAll("g");
+
+        // Join the data to the selection using selection.data
+        var barUpdate = bar.data(people);
+
+        // Get the 'enter' selection and append a g element
+        var barEnter = barUpdate.enter();
+        var barGroup = barEnter.append("g");
+
+        // Set the transform for each bar based on the index and barHeight
+        barGroup.attr("transform", function (person, index) {
+            return "translate(0," + index * barHeight + ")";
+        });
+
+        // Set up the rect
+        var barRect = barGroup.append("rect");
+        barRect.attr("width", function (person) { return domainToRangeFun(person.Age); });
+        barRect.attr("height", barHeight - 1);
+
+        // Set up the text
+        var barText = barGroup.append("text");
+        barText.attr("x", function (person) {
+            return domainToRangeFun(person.Age) - 3;
+        });
+        barText.attr("y", barHeight / 2);
+        barText.attr("dy", ".35em");
+        barText.text(function (person) {
+            return person.FirstName + " " + person.LastName + " (" + person.Age + ")";
+        });
+    });
+
+    // 4) array of letters -> SVG graph
+    // Read JSON from the Home controller
+    $.getJSON('@Url.Action("GetLetterFrequencies", "Home")', function (letters) {
+
+        var graphWidth = 420;
+        var barHeight = 20;
+
+        // Calculate the max age for our 'domain->range' function
+        var maxFrequency = d3.max(letters, function (letter) {
+            return letter.Frequency;
+        });
+
+        // Create a 'domain->range' linear transform function
+        var domainToRangeFun = d3.scale.linear()
+            .domain([0, maxFrequency])
+            .range([0, graphWidth]);
+
+        // Select the chart container using a class selector
+        var chart = d3.select("#chart4");
+
+        // Setup the chart's attributes
+        chart.attr("width", graphWidth);
+        chart.attr("height", barHeight * letters.length);
+
+        // Select the elements we want to exist
+        var bar = chart.selectAll("g");
+
+        // Join the data to the selection using selection.data
+        var barUpdate = bar.data(letters);
+
+        // Get the 'enter' selection and append a g element
+        var barEnter = barUpdate.enter();
+        var barGroup = barEnter.append("g");
+
+        // Set the transform for each bar based on the index and barHeight
+        barGroup.attr("transform", function (letters, index) {
+            return "translate(0," + index * barHeight + ")";
+        });
+
+        // Set up the rect
+        var barRect = barGroup.append("rect");
+        barRect.attr("width", function (letter) { return domainToRangeFun(letter.Frequency); });
+        barRect.attr("height", barHeight - 1);
+
+        // Set up the text
+        var barText = barGroup.append("text");
+        barText.attr("x", function (letter) {
+            return domainToRangeFun(letter.Frequency) - 3;
+        });
+        barText.attr("y", barHeight / 2);
+        barText.attr("dy", ".35em");
+        barText.text(function (letter) {
+            return letter.Text;
+        });
+    });
+
+</script>
+</body>
+</html>
+
+

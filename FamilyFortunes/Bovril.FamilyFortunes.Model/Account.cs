@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Bovril.FamilyFortunes.Model
 {
     /// <summary>
-    /// An account within a set of account
+    /// An account within a set of accounts
     /// </summary>
     public class Account
     {

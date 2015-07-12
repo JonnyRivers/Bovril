@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphTestbed", "GraphTestbed\GraphTestbed.csproj", "{3752F7E7-F2AC-4BB8-BA24-6B9612F1B51F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphTestbed.Tests", "GraphTestbed.Tests\GraphTestbed.Tests.csproj", "{415C34A3-FC9E-4562-B941-727DF9182E84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3752F7E7-F2AC-4BB8-BA24-6B9612F1B51F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3752F7E7-F2AC-4BB8-BA24-6B9612F1B51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3752F7E7-F2AC-4BB8-BA24-6B9612F1B51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3752F7E7-F2AC-4BB8-BA24-6B9612F1B51F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{415C34A3-FC9E-4562-B941-727DF9182E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{415C34A3-FC9E-4562-B941-727DF9182E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{415C34A3-FC9E-4562-B941-727DF9182E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{415C34A3-FC9E-4562-B941-727DF9182E84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
