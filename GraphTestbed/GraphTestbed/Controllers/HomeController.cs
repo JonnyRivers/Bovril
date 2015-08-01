@@ -21,6 +21,11 @@ namespace GraphTestbed.Controllers
             return View();
         }
 
+        public ActionResult BuildSystemStats()
+        {
+            return View();
+        }
+
         public JsonResult GetNumbers()
         {
             int[] numbers = new int[] { 4, 8, 15, 16, 23, 42 };
@@ -69,6 +74,22 @@ namespace GraphTestbed.Controllers
             };
 
             var viewModel = new OrdinalBarChartViewModel("Letter Frequencies", "Letter", "Frequency", items);
+
+            return Json(viewModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetSuccessRate()
+        {
+            var items = new OrdinalBarChartItem[] {
+                new OrdinalBarChartItem("27/6/15", .8123m),
+                new OrdinalBarChartItem("4/7/15", .9212m),
+                new OrdinalBarChartItem("11/7/15", .9001m),
+                new OrdinalBarChartItem("18/7/15", .8839m),
+                new OrdinalBarChartItem("25/7/15", .8349m),
+                new OrdinalBarChartItem("1/8/15", .9301m)
+            };
+
+            var viewModel = new OrdinalBarChartViewModel("Success Rate", "Week", "Rate", items);
 
             return Json(viewModel, JsonRequestBehavior.AllowGet);
         }
