@@ -11,7 +11,12 @@ namespace GraphTestbed.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Letters()
+        {
+            return View();
+        }
+
+        public ActionResult Gallery()
         {
             return View();
         }
@@ -34,36 +39,38 @@ namespace GraphTestbed.Controllers
 
         public JsonResult GetLetterFrequencies()
         {
-            Letter[] letters = new Letter[] {
-                new Letter("A", .08167m),
-                new Letter("B", .01492m),
-                new Letter("C", .02782m),
-                new Letter("D", .04253m),
-                new Letter("E", .12702m),
-                new Letter("F", .02288m),
-                new Letter("G", .02015m),
-                new Letter("H", .06094m),
-                new Letter("I", .06966m),
-                new Letter("J", .00153m),
-                new Letter("K", .00772m),
-                new Letter("L", .04025m),
-                new Letter("M", .02406m),
-                new Letter("N", .06749m),
-                new Letter("O", .07507m),
-                new Letter("P", .01929m),
-                new Letter("Q", .00095m),
-                new Letter("R", .05987m),
-                new Letter("S", .06327m),
-                new Letter("T", .09056m),
-                new Letter("U", .02758m),
-                new Letter("V", .00978m),
-                new Letter("W", .02360m),
-                new Letter("X", .00150m),
-                new Letter("Y", .01974m),
-                new Letter("Z", .00074m)
+            var items = new OrdinalBarChartItem[] {
+                new OrdinalBarChartItem("A", .08167m),
+                new OrdinalBarChartItem("B", .01492m),
+                new OrdinalBarChartItem("C", .02782m),
+                new OrdinalBarChartItem("D", .04253m),
+                new OrdinalBarChartItem("E", .12702m),
+                new OrdinalBarChartItem("F", .02288m),
+                new OrdinalBarChartItem("G", .02015m),
+                new OrdinalBarChartItem("H", .06094m),
+                new OrdinalBarChartItem("I", .06966m),
+                new OrdinalBarChartItem("J", .00153m),
+                new OrdinalBarChartItem("K", .00772m),
+                new OrdinalBarChartItem("L", .04025m),
+                new OrdinalBarChartItem("M", .02406m),
+                new OrdinalBarChartItem("N", .06749m),
+                new OrdinalBarChartItem("O", .07507m),
+                new OrdinalBarChartItem("P", .01929m),
+                new OrdinalBarChartItem("Q", .00095m),
+                new OrdinalBarChartItem("R", .05987m),
+                new OrdinalBarChartItem("S", .06327m),
+                new OrdinalBarChartItem("T", .09056m),
+                new OrdinalBarChartItem("U", .02758m),
+                new OrdinalBarChartItem("V", .00978m),
+                new OrdinalBarChartItem("W", .02360m),
+                new OrdinalBarChartItem("X", .00150m),
+                new OrdinalBarChartItem("Y", .01974m),
+                new OrdinalBarChartItem("Z", .00074m)
             };
 
-            return Json(letters, JsonRequestBehavior.AllowGet);
+            var viewModel = new OrdinalBarChartViewModel("Letter Frequencies", "Letter", "Frequency", items);
+
+            return Json(viewModel, JsonRequestBehavior.AllowGet);
         }
     }
 }

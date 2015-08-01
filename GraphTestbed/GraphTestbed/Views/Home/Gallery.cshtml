@@ -1,31 +1,38 @@
-﻿
-@{
-    Layout = null;
-    ViewBag.Title = "Index";
+﻿@{
+  Layout = null;
+  ViewBag.Title = "Gallery";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/d3/d3.min.js"></script>
+  <title>Gallery</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+  <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+  <script src="~/Scripts/d3/d3.min.js"></script>
+  <script src="~/Scripts/d3helpers.js"></script>
 </head>
 
 <body>
-    <div id="chart1" class="chart"></div>
-    <br />
-    <div id="chart2" class="chart"></div>
-    <br />
-    <svg id="chart3" class="chart"></svg>
-    <br />
-    <br />
-    <svg id="chart4" class="chart"></svg>
-    <br />
+  <div id="chart1" class="chart"></div>
+  <br />
+  <div id="chart2" class="chart"></div>
+  <br />
+  <svg id="chart3" class="chart"></svg>
+  <br />
+  <br />
+  <svg id="chart4" class="chart"></svg>
+  <br />
+  <br />
+  <svg id="chart5" class="chart"></svg>
+  <br />
+  <br />
+  <svg id="chart6" class="chart"></svg>
+  <br />
 
-    <script>
+  <script>
     // Adding random shit with d3.js
     var body = d3.select("body");
     body.append("br");
@@ -156,7 +163,7 @@
 
         // Calculate the max age for our 'domain->range' function
         var maxFrequency = d3.max(letters, function (letter) {
-            return letter.Frequency;
+            return letter.Value;
         });
 
         // Create a 'domain->range' linear transform function
@@ -188,22 +195,90 @@
 
         // Set up the rect
         var barRect = barGroup.append("rect");
-        barRect.attr("width", function (letter) { return domainToRangeFun(letter.Frequency); });
+        barRect.attr("width", function (letter) { return domainToRangeFun(letter.Value); });
         barRect.attr("height", barHeight - 1);
 
         // Set up the text
         var barText = barGroup.append("text");
         barText.attr("x", function (letter) {
-            return domainToRangeFun(letter.Frequency) - 3;
+            return domainToRangeFun(letter.Value) - 3;
         });
         barText.attr("y", barHeight / 2);
         barText.attr("dy", ".35em");
         barText.text(function (letter) {
-            return letter.Text;
+            return letter.Label;
         });
     });
 
-</script>
+    // 5) array of letters -> SVG graph
+    // Read JSON from the Home controller
+    $.getJSON('@Url.Action("GetLetterFrequencies", "Home")', function (letters) {
+
+      var graphMargin = {
+        top: 20,
+        right: 30,
+        bottom: 30,
+        left: 40
+      };
+      var graphWidth = 960 - graphMargin.left - graphMargin.right;
+      var graphHeight = 500 - graphMargin.top - graphMargin.bottom;
+
+      var x = d3.scale.ordinal()
+        .rangeRoundBands([0, graphWidth], .1)
+        .domain(letters.map(function (d) { return d.Label; }));
+
+      // Calculate the max for our 'domain->range' function
+      var maxFrequency = d3.max(letters, function (letter) {
+        return letter.Value;
+      });
+
+      // Create a 'domain->range' linear transform function
+      var y = d3.scale.linear()
+          .domain([0, maxFrequency])
+          .range([graphHeight, 0]);
+
+      var xAxis = d3.svg.axis().scale(x).orient("bottom");
+
+      var yAxis = d3.svg.axis().scale(y).orient("left");
+
+      // Select the chart container using a class selector
+      var chart = d3.select("#chart5")
+        .attr("width", graphWidth + graphMargin.left + graphMargin.right)
+        .attr("height", graphHeight + graphMargin.top + graphMargin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + graphMargin.left + "," + graphMargin.top + ")");
+
+      chart.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + graphHeight + ")")
+        .call(xAxis);
+
+      chart.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+
+      // Setup the chart's attributes
+      chart.attr("width", graphWidth + graphMargin.left + graphMargin.right);
+      chart.attr("height", graphHeight + graphMargin.top + graphMargin.bottom);
+
+      // Select the elements we want to exist
+      chart.selectAll(".bar")
+        .data(letters)
+        .enter()
+        .append("rect")
+        .attr("x", function (d) { return x(d.Label); })
+        .attr("y", function (d) { return y(d.Value); })
+        .attr("height", function (d) { return graphHeight - y(d.Value); })
+        .attr("width", x.rangeBand());
+    });
+
+    // 6) array of letters -> SVG graph using layer above d3.js
+    // Read JSON from the Home controller
+    $.getJSON('@Url.Action("GetLetterFrequencies", "Home")', function (letters) {
+      d3helpers.createOrdinalBarChart("#chart6", letters);
+    });
+
+  </script>
 </body>
 </html>
 

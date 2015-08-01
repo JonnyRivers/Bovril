@@ -45,7 +45,9 @@ namespace TaxMe.Models
                 numPersonalAllowances = 2;
             }
 
-            decimal taxableIncome = incomeAndDeductions.TaxableIncome - 
+            decimal taxableIncome = incomeAndDeductions.GrossAnnualIncome - 
+                incomeAndDeductions.PensionDeduction - 
+                incomeAndDeductions.PreTaxDeductions - 
                 (c_federalStandardDeduction * numStandardDeductions) - 
                 (c_federalPersonalAllowance * numPersonalAllowances);
 
@@ -78,7 +80,9 @@ namespace TaxMe.Models
                 numStandardDeductions = 1;
             }
 
-            decimal taxableIncome = incomeAndDeductions.TaxableIncome -
+            decimal taxableIncome = incomeAndDeductions.GrossAnnualIncome -
+                incomeAndDeductions.PensionDeduction -
+                incomeAndDeductions.PreTaxDeductions - 
                 (c_californiaStandardDeduction * numStandardDeductions);
 
             List<TaxLine> taxLines = new List<TaxLine>();
@@ -103,8 +107,9 @@ namespace TaxMe.Models
 
         private static Tax GetSocialSecurityTax(IncomeAndDeductions incomeAndDeductions)
         {
-            decimal oasiTaxable = Math.Min(incomeAndDeductions.TaxableIncome, c_socialSecurityTaxableLimit);
-            decimal diTaxable = Math.Min(incomeAndDeductions.TaxableIncome, c_socialSecurityTaxableLimit);
+            // what about pre tax deductions and 401(k)?
+            decimal oasiTaxable = Math.Min(incomeAndDeductions.GrossAnnualIncome, c_socialSecurityTaxableLimit);
+            decimal diTaxable = Math.Min(incomeAndDeductions.GrossAnnualIncome, c_socialSecurityTaxableLimit);
 
             TaxLine[] lines = new TaxLine[] {
                 new TaxLine("Old-Age and Survivors Insurance", .053m, oasiTaxable),
@@ -116,8 +121,9 @@ namespace TaxMe.Models
 
         private static Tax GetMedicareTax(IncomeAndDeductions incomeAndDeductions)
         {
+            // what about pre tax deductions and 401(k)?
             TaxLine[] lines = new TaxLine[] {
-                new TaxLine("Hospital Insurance", .0145m, incomeAndDeductions.TaxableIncome)
+                new TaxLine("Hospital Insurance", .0145m, incomeAndDeductions.GrossAnnualIncome)
             };
 
             return new Tax("Medicare", lines);
@@ -125,7 +131,8 @@ namespace TaxMe.Models
 
         private static Tax GetStateDisabilityInsuranceTax(IncomeAndDeductions incomeAndDeductions)
         {
-            decimal sdiTaxable = Math.Min(incomeAndDeductions.TaxableIncome, c_californiaStateDisabilityInsuranceTaxableLimit);
+            // what about pre tax deductions and 401(k)?
+            decimal sdiTaxable = Math.Min(incomeAndDeductions.GrossAnnualIncome, c_californiaStateDisabilityInsuranceTaxableLimit);
 
             TaxLine[] lines = new TaxLine[] {
                 new TaxLine("State Disability Insurance", .009m, sdiTaxable)

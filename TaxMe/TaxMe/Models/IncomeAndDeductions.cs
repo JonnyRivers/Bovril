@@ -24,11 +24,5 @@ namespace TaxMe.Models
                 return GrossAnnualIncome * (PensionContributionRate / 100);
             }
         }
-
-        public decimal TaxableIncome {
-            get {
-                return GrossAnnualIncome - PensionDeduction - PreTaxDeductions;
-            }
-        }
     }
 }

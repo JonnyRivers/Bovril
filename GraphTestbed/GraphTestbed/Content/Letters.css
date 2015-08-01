@@ -48,3 +48,13 @@ textarea {
 .x.axis path {
   display: none;
 }
+
+.axislabel text {
+    text-anchor: middle;
+    font: 18px sans-serif;
+}
+
+.charttitle text {
+    text-anchor: middle;
+    font: 24px sans-serif;
+}
