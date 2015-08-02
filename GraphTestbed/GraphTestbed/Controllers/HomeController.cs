@@ -97,8 +97,12 @@ namespace GraphTestbed.Controllers
         public JsonResult GetWeeklyPerformance()
         {
             var items = new OrdinalBoxPlotItem[] {
-                new OrdinalBoxPlotItem("25/7/15", 0.1m, 0.3m, 0.5m, 0.7m, 0.9m),
-                new OrdinalBoxPlotItem("1/8/15", 0.2m, 0.35m, 0.5m, 0.6m, 0.65m)
+                new OrdinalBoxPlotItem("27/6/15", 0.05m, 0.2m, 0.4m, 0.55m, 0.6m),
+                new OrdinalBoxPlotItem("4/7/15", 0.2m, 0.3m, 0.5m, 0.7m, 0.8m),
+                new OrdinalBoxPlotItem("11/7/15", 0.13m, 0.23m, 0.31m, 0.55m, 0.7m),
+                new OrdinalBoxPlotItem("18/7/15", 0.28m, 0.39m, 0.56m, 0.71m, 0.82m),
+                new OrdinalBoxPlotItem("25/7/15", 0.11m, 0.22m, 0.358m, 0.44m, 0.61m),
+                new OrdinalBoxPlotItem("1/8/15", 0.03m, 0.09m, 0.2m, 0.7m, 0.8m)
             };
 
             var viewModel = new OrdinalBoxPlotViewModel("Weekly Performance", "Week", "Duration", items);

@@ -24,11 +24,11 @@
   <script>
     // Read JSON from the Home controller
     $.getJSON('@Url.Action("GetSuccessRate", "Home")', function (viewModel) {
-      d3helpers.createOrdinalBarChart("#chart1", viewModel, 1000, 600);
+      d3helpers.createOrdinalBarChart("#chart1", viewModel, 1000, 610);
     });
 
     $.getJSON('@Url.Action("GetWeeklyPerformance", "Home")', function (viewModel) {
-      d3helpers.createOrdinalBoxPlotChart("#chart2", viewModel, 1000, 600);
+      d3helpers.createOrdinalBoxPlotChart("#chart2", viewModel, 1000, 610);
     });
 
   </script>

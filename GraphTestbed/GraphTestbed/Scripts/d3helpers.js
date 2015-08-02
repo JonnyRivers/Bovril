@@ -176,34 +176,47 @@ d3helpers.createOrdinalBoxPlotChart = function (elementSelectionText, graphData,
         .data(graphData.Items)
         .enter();
 
-    barEnter.append("rect")
-        .style("fill", "orange")
-        .attr("x", function (d) { return x(d.Label); })
-        .attr("y", function (d) { return y(d.Minimum); })
-        .attr("height", function (d) { return graphHeight - y(d.LowerQuartile - d.Minimum); })
-        .attr("width", x.rangeBand());
+    //barEnter.append("rect")
+    //    .style("fill", "orange")
+    //    .attr("x", function (d) { return x(d.Label); })
+    //    .attr("y", function (d) { return y(d.LowerQuartile); })
+    //    .attr("height", function (d) { return graphHeight - y(d.LowerQuartile - d.Minimum); })
+    //    .attr("width", x.rangeBand());
+
+    barEnter.append("path")
+        .style("stroke", "black")
+        .attr("d", function (d) {
+            var cmd1 = "M " + (x(d.Label) + (x.rangeBand() / 2)) + " " + y(d.LowerQuartile);
+            var cmd2 = "L " + (x(d.Label) + (x.rangeBand() / 2)) + " " + y(d.Minimum);
+            var cmd3 = "M " + (x(d.Label) + (x.rangeBand() / 4)) + " " + y(d.Minimum);
+            var cmd4 = "L " + (x(d.Label) + (x.rangeBand() * 3 / 4)) + " " + y(d.Minimum);
+            return cmd1 + " " + cmd2 + " " + cmd3 + " " + cmd4;
+        });
 
     barEnter.append("rect")
-        .style("fill", "green")
+        .style("stroke", "black")
+        .style("fill", "none")
         .attr("x", function (d) { return x(d.Label); })
-        .attr("y", function (d) { return y(d.LowerQuartile); })
+        .attr("y", function (d) { return y(d.Median); })
         .attr("height", function (d) { return graphHeight - y(d.Median - d.LowerQuartile); })
         .attr("width", x.rangeBand());
 
     barEnter.append("rect")
-        .style("fill", "purple")
+        .style("stroke", "black")
+        .style("fill", "none")
         .attr("x", function (d) { return x(d.Label); })
-        .attr("y", function (d) { return y(d.Median); })
+        .attr("y", function (d) { return y(d.UpperQuartile); })
         .attr("height", function (d) { return graphHeight - y(d.UpperQuartile - d.Median); })
         .attr("width", x.rangeBand());
 
-    barEnter.append("rect")
-        .style("fill", "red")
-        .attr("x", function (d) { return x(d.Label); })
-        .attr("y", function (d) { return y(d.UpperQuartile); })
-        .attr("height", function (d) { return graphHeight - y(d.Maximum - d.UpperQuartile); })
-        .attr("width", x.rangeBand());
-
-    
+    barEnter.append("path")
+        .style("stroke", "black")
+        .attr("d", function (d) {
+            var cmd1 = "M " + (x(d.Label) + (x.rangeBand() / 2)) + " " + y(d.UpperQuartile);
+            var cmd2 = "L " + (x(d.Label) + (x.rangeBand() / 2)) + " " + y(d.Maximum);
+            var cmd3 = "M " + (x(d.Label) + (x.rangeBand() / 4)) + " " + y(d.Maximum);
+            var cmd4 = "L " + (x(d.Label) + (x.rangeBand() * 3 / 4)) + " " + y(d.Maximum);
+            return cmd1 + " " + cmd2 + " " + cmd3 + " " + cmd4;
+        });
 }
 
