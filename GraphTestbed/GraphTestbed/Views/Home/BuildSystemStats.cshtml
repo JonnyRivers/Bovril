@@ -17,11 +17,18 @@
 
 <body>
   <svg id="chart1" class="chart"></svg>
+  <br />
+  <br />
+  <svg id="chart2" class="chart"></svg>
 
   <script>
     // Read JSON from the Home controller
     $.getJSON('@Url.Action("GetSuccessRate", "Home")', function (viewModel) {
       d3helpers.createOrdinalBarChart("#chart1", viewModel, 1000, 600);
+    });
+
+    $.getJSON('@Url.Action("GetWeeklyPerformance", "Home")', function (viewModel) {
+      d3helpers.createOrdinalBoxPlotChart("#chart2", viewModel, 1000, 600);
     });
 
   </script>

@@ -108,6 +108,8 @@
     <Compile Include="Models\Letter.cs" />
     <Compile Include="Models\OrdinalBarChartItem.cs" />
     <Compile Include="Models\OrdinalBarChartViewModel.cs" />
+    <Compile Include="Models\OrdinalBoxPlotItem.cs" />
+    <Compile Include="Models\OrdinalBoxPlotViewModel.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
