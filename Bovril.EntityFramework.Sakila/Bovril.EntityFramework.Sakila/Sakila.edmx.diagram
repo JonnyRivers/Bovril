@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="34a1a0f86ecd41249aa0a97bb1caa9af" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.actor" Width="1.5" PointX="12.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.address" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.category" Width="1.5" PointX="12.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.city" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.country" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.customer" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.film" Width="1.5" PointX="12.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.film_actor" Width="1.5" PointX="15" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.film_category" Width="1.5" PointX="15" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.film_text" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.inventory" Width="1.5" PointX="15" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.language" Width="1.5" PointX="10.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.payment" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.rental" Width="1.5" PointX="15.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.staff" Width="1.5" PointX="10.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.store" Width="1.5" PointX="12.75" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.fk_film_actor_actor" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_address_city" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_customer_address" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_staff_address" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_store_address" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_film_category_category" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_city_country" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_customer_store" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_payment_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_rental_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_film_actor_film" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_film_category_film" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_film_language" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_film_language_original" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_inventory_film" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_inventory_store" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_rental_inventory" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_payment_rental" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_payment_staff" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_rental_staff" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_staff_store" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_store_staff" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

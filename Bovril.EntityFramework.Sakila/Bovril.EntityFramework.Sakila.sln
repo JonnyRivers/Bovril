@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bovril.EntityFramework.Sakila", "Bovril.EntityFramework.Sakila\Bovril.EntityFramework.Sakila.csproj", "{F03674ED-6533-45AF-B7F0-0B6319F2B8FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bovril.EntityFramework.Sakila.Tests", "Bovril.EntityFramework.Sakila.Tests\Bovril.EntityFramework.Sakila.Tests.csproj", "{0825F58B-D6CC-41BF-8C40-40213324D1A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bovril.Sakila", "Bovril.Sakila\Bovril.Sakila.csproj", "{6B3A1954-8352-47A1-B31F-8B314999BEE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bovril.Sakila.Tests", "Bovril.Sakila.Tests\Bovril.Sakila.Tests.csproj", "{09024E94-DCA7-41CB-9803-8A4B3A52C1C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bovril.Sakila.ServiceApp", "Bovril.Sakila.ServiceApp\Bovril.Sakila.ServiceApp.csproj", "{E32C5BCA-FA63-4687-938F-AA8C4DF59E23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bovril.Sakila.ConsumerTest", "Bovril.Sakila.ConsumerTest\Bovril.Sakila.ConsumerTest.csproj", "{FDE4220A-E6B4-44D5-8C8B-28255C086764}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E32C5BCA-FA63-4687-938F-AA8C4DF59E23} = {E32C5BCA-FA63-4687-938F-AA8C4DF59E23}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F03674ED-6533-45AF-B7F0-0B6319F2B8FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03674ED-6533-45AF-B7F0-0B6319F2B8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F03674ED-6533-45AF-B7F0-0B6319F2B8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F03674ED-6533-45AF-B7F0-0B6319F2B8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0825F58B-D6CC-41BF-8C40-40213324D1A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0825F58B-D6CC-41BF-8C40-40213324D1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0825F58B-D6CC-41BF-8C40-40213324D1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0825F58B-D6CC-41BF-8C40-40213324D1A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B3A1954-8352-47A1-B31F-8B314999BEE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B3A1954-8352-47A1-B31F-8B314999BEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B3A1954-8352-47A1-B31F-8B314999BEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B3A1954-8352-47A1-B31F-8B314999BEE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09024E94-DCA7-41CB-9803-8A4B3A52C1C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09024E94-DCA7-41CB-9803-8A4B3A52C1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09024E94-DCA7-41CB-9803-8A4B3A52C1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09024E94-DCA7-41CB-9803-8A4B3A52C1C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E32C5BCA-FA63-4687-938F-AA8C4DF59E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E32C5BCA-FA63-4687-938F-AA8C4DF59E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E32C5BCA-FA63-4687-938F-AA8C4DF59E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E32C5BCA-FA63-4687-938F-AA8C4DF59E23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDE4220A-E6B4-44D5-8C8B-28255C086764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDE4220A-E6B4-44D5-8C8B-28255C086764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDE4220A-E6B4-44D5-8C8B-28255C086764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDE4220A-E6B4-44D5-8C8B-28255C086764}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
